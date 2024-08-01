@@ -52,9 +52,6 @@
     papirus-icon-theme
     python39Full
 
-    rclone
-    rclone-browser
-
     gparted
     vlc
     ghidra
@@ -73,7 +70,7 @@
     openssh
     openssl
     killall
-    whatsapp-for-linux
+    #  whatsapp-for-linux
     bison
     flex
     fontforge
@@ -105,7 +102,7 @@
 #     jq # A lightweight and flexible command-line JSON processor
 #     yq-go # yaml processor https://github.com/mikefarah/yq
 #     eza # A modern replacement for ‘ls’
-    fzf # A command-line fuzzy finder
+#     fzf # A command-line fuzzy finder
 
     # networking tools
 #     mtr # A network diagnostic tool
@@ -123,6 +120,10 @@
     which
     wireshark
     tree
+    btop
+    fzf
+    rclone
+    rclone-browser
 #     gnused
 #     gnutar
 #     gawk
@@ -139,7 +140,7 @@
 #     hugo # static site generator
 #     glow # markdown previewer in terminal
 #
-    btop  # replacement of htop/nmon
+#     btop  # replacement of htop/nmon
 #     iotop # io monitoring
 #     iftop # network monitoring
 #
@@ -159,16 +160,12 @@
 #     usbutils # lsusb
   ];
 
-
-
 #   services.gns3-server = {
 #     enable = true;
 #     auth.user = "inomal";
 #
 #   };
-  xdg.configFile."nvim/" = {
-    source = (pkgs.callPackage ./nvchad.nix{}).nvchad;
-  };
+
 
   # basic configuration of git, please change to your own
 
@@ -270,9 +267,9 @@
       ll = "ls -l";
       lll = "ls -la";
       nbld ="sudo nixos-rebuild switch";
-      #hbld = "home-manager switch";
-      ngcall = "sudo nix-collect-garbage -d; nix store gc; nix store optimise";
-      ngc = "nix store gc; nix store optimise";
+      hbld = "home-manager switch";
+      ngc="nix store gc; nix store optimise";
+      ngcall="sudo nix-collect-garbage -d; nix store gc; nix store optimise";
       z = "zoxide";
     };
   };
@@ -287,10 +284,10 @@
         background_opacity = "0.9";
     };
   };
-/*
+
   programs.neovim = {
     enable = true;
-  };*/
+  };
 
 
   programs.zoxide = {

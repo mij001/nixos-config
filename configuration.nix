@@ -32,7 +32,6 @@
   };
 
 
-
   networking.hostName = "nixos"; # Define your hostname.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -56,7 +55,7 @@
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
-  services.xserver.excludePackages = [ pkgs.xterm ];
+
   # Enable the KDE Plasma Desktop Environment.
 # services.displayManager.sddm.wayland.enable = true;
   services.displayManager.sddm.enable = true;
@@ -104,17 +103,13 @@
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
-
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
-    audio.enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
     pulse.enable = true;
-    alsa = {
-      enable = true;
-      support32Bit = true;
-    };
-    wireplumber.enable = true;
+    # If you want to use JACK applications, uncomment this
     #jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
@@ -132,7 +127,7 @@
   users.users.inomal = {
     isNormalUser = true;
     description = "Mayura Inomal";
-    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" "audio"];
+    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
@@ -164,7 +159,7 @@
      # Flakes clones its dependencies through the git command,
      # so git must be installed first
      git
-
+     vim
      wget
 
 
@@ -219,9 +214,9 @@
   # Set the default editor to vim
   environment.variables.EDITOR = "vim";
   environment.sessionVariables = {
-  XDG_DATA_HOME = "$HOME/.local/share";
-  XDG_CONFIG_HOME = "$HOME/.local/config";
-  XDG_CACHE_HOME = "$HOME/.local/cache";
+#   XDG_DATA_HOME = "$HOME/.local/share";
+#   XDG_CONFIG_HOME = "$HOME/.local/config";
+#   XDG_CACHE_HOME = "$HOME/.local/cache";
 
   NIXOS_OZONE_WL = "1";
 };
