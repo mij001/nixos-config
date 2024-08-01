@@ -128,7 +128,7 @@
   users.users.inomal = {
     isNormalUser = true;
     description = "Mayura Inomal";
-    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" "input"];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird

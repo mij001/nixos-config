@@ -167,6 +167,33 @@
 #   };
 
 
+  # services.fusuma = {
+  #   enable = true;
+  #   extraPackages = with pkgs; [coreutils-full ydotool];
+  #   settings = {
+  #     threshold = {
+  #       swipe = 0.1;
+  #     };
+  #     interval = {
+  #       swipe = 0.7;
+  #     };
+  #     swipe = {
+  #       "3" = {
+  #         begin.command = "ydotool keydown Alt";
+  #         right.update = {
+  #           command = "ydotool key Tab";
+  #           interval = "5";
+  #         };
+  #         left.update = {
+  #           command = "ydotool key Shift+Tab";
+  #           interval = "5";
+  #         };
+  #         end.command = "ydotool keyup Alt";
+  #         };
+  #     };
+  #   };
+  # };
+
   # basic configuration of git, please change to your own
 
 /*
