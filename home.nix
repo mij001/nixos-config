@@ -70,7 +70,7 @@
     openssh
     openssl
     killall
-    #  whatsapp-for-linux
+    whatsapp-for-linux
     bison
     flex
     fontforge
@@ -102,7 +102,7 @@
 #     jq # A lightweight and flexible command-line JSON processor
 #     yq-go # yaml processor https://github.com/mikefarah/yq
 #     eza # A modern replacement for ‘ls’
-#     fzf # A command-line fuzzy finder
+    fzf # A command-line fuzzy finder
 
     # networking tools
 #     mtr # A network diagnostic tool
@@ -119,7 +119,7 @@
     file
     which
     wireshark
-#     tree
+    tree
 #     gnused
 #     gnutar
 #     gawk
@@ -136,7 +136,7 @@
 #     hugo # static site generator
 #     glow # markdown previewer in terminal
 #
-#     btop  # replacement of htop/nmon
+    btop  # replacement of htop/nmon
 #     iotop # io monitoring
 #     iftop # network monitoring
 #
