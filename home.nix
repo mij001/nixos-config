@@ -70,7 +70,7 @@
     openssh
     openssl
     killall
-    #  whatsapp-for-linux
+    whatsapp-for-linux
     bison
     flex
     fontforge
