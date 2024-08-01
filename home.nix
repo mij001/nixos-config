@@ -263,7 +263,9 @@
       ll = "ls -l";
       lll = "ls -la";
       nbld ="sudo nixos-rebuild switch";
-      hbld = "home-manager switch";
+      #hbld = "home-manager switch";
+      ngcall = "sudo nix-collect-garbage -d; nix store gc; nix store optimize";
+      ngc = "nix store gc; nix store optimize";
       z = "zoxide";
     };
   };
