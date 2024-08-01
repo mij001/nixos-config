@@ -52,6 +52,9 @@
     papirus-icon-theme
     python39Full
 
+    rclone
+    rclone-browser
+
     gparted
     vlc
     ghidra
@@ -156,12 +159,16 @@
 #     usbutils # lsusb
   ];
 
+
+
 #   services.gns3-server = {
 #     enable = true;
 #     auth.user = "inomal";
 #
 #   };
-
+  xdg.configFile."nvim/" = {
+    source = (pkgs.callPackage ./nvchad.nix{}).nvchad;
+  };
 
   # basic configuration of git, please change to your own
 
@@ -264,8 +271,8 @@
       lll = "ls -la";
       nbld ="sudo nixos-rebuild switch";
       #hbld = "home-manager switch";
-      ngcall = "sudo nix-collect-garbage -d; nix store gc; nix store optimize";
-      ngc = "nix store gc; nix store optimize";
+      ngcall = "sudo nix-collect-garbage -d; nix store gc; nix store optimise";
+      ngc = "nix store gc; nix store optimise";
       z = "zoxide";
     };
   };

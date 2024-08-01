@@ -32,6 +32,7 @@
   };
 
 
+
   networking.hostName = "nixos"; # Define your hostname.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -55,7 +56,7 @@
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
-
+  services.xserver.excludePackages = [ pkgs.xterm ];
   # Enable the KDE Plasma Desktop Environment.
 # services.displayManager.sddm.wayland.enable = true;
   services.displayManager.sddm.enable = true;
