@@ -165,10 +165,17 @@
     git
     vim
     wget
-
-
-
+    fprintd
   ];
+
+  # fingerprint setup
+  services.fprintd = {
+    enable = true;
+    tod.enable = true;
+    tod.driver = pkgs.libfprint-2-tod1-elan;
+  };
+  security.pam.services.login.fprintAuth = true;
+
 
   ########### Needed fonts
   fonts.packages = with pkgs; [
