@@ -1,11 +1,11 @@
-{config, lib, pkgs, ...} :
+{ config, lib, pkgs, ... }:
 {
-    programs.ranger = {
-        enable = true;
+  programs.ranger = {
+    enable = true;
 
-    };
+  };
 
-    home.packages = with pkgs; [
+  home.packages = with pkgs; [
     ripdrag
     highlight
   ];

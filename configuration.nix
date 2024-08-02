@@ -6,7 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
@@ -58,30 +59,30 @@
   services.xserver.excludePackages = [ pkgs.xterm ];
 
   # Enable the KDE Plasma Desktop Environment.
-# services.displayManager.sddm.wayland.enable = true;
+  # services.displayManager.sddm.wayland.enable = true;
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
   ######################### Heperland setup #######################
-/*
-  programs.hyprland = { # we use this instead of putting it in systemPackages/users
+  /*
+    programs.hyprland = { # we use this instead of putting it in systemPackages/users
     enable = true;
     xwayland.enable = true;
-  };
+    };
 
-  environment.sessionVariables.NIXOS_OZONE_WL = "1"; # This variable fixes electron apps in wayland
+    environment.sessionVariables.NIXOS_OZONE_WL = "1"; # This variable fixes electron apps in wayland
 
 
 
-  # NVIDIA drivers are unfree.
-  services.xserver.videoDrivers = [ "nvidia" "intel"]; # If you are using a hybrid laptop add its iGPU manufacturer
-  hardware.opengl = {
+    # NVIDIA drivers are unfree.
+    services.xserver.videoDrivers = [ "nvidia" "intel"]; # If you are using a hybrid laptop add its iGPU manufacturer
+    hardware.opengl = {
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
-  };
+    };
 
-  hardware.nvidia = {
+    hardware.nvidia = {
     # Enable modesetting for Wayland compositors (hyprland)
     modesetting.enable = true;
     # Use the open source version of the kernel module (for driver 515.43.04+)
@@ -94,10 +95,10 @@
   #################################################################
 
   # Configure keymap in X11
-#    services.xserver = {
-#      layout = "us";
-#      xkbVariant = "";
-#    };
+  #    services.xserver = {
+  #      layout = "us";
+  #      xkbVariant = "";
+  #    };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -128,40 +129,42 @@
   users.users.inomal = {
     isNormalUser = true;
     description = "Mayura Inomal";
-    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" "input"];
+    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" "input" ];
     packages = with pkgs; [
       kdePackages.kate
-    #  thunderbird
+      #  thunderbird
     ];
   };
+
+  nix.settings.trusted-users = [ "inomal" ];
 
   virtualisation.libvirtd.enable = true;
 
   # To install docker, add the following to your your NixOS configuration:
   virtualisation.docker.enable = true;
   virtualisation.docker.daemon.settings = {
-  data-root = "/home/inomal/docker";
+    data-root = "/home/inomal/docker";
   };
 
   # To make sure some docker containers are running as systemd services, you can use 'oci-containers':
 
-#   virtualisation.oci-containers = {
-#     backend = "docker";
-#     containers = {
-#       foo = {
-#         # ...
-#       };
-#     };
-#   };
+  #   virtualisation.oci-containers = {
+  #     backend = "docker";
+  #     containers = {
+  #       foo = {
+  #         # ...
+  #       };
+  #     };
+  #   };
 
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
 
-     # Flakes clones its dependencies through the git command,
-     # so git must be installed first
-     git
-     vim
-     wget
+    # Flakes clones its dependencies through the git command,
+    # so git must be installed first
+    git
+    vim
+    wget
 
 
 
@@ -169,15 +172,15 @@
 
   ########### Needed fonts
   fonts.packages = with pkgs; [
-  fira-code
-  fira-code-symbols
-  mplus-outline-fonts.githubRelease
-  dina-font
-  proggyfonts
-  wineWowPackages.fonts
-  corefonts
-  vistafonts
-];
+    fira-code
+    fira-code-symbols
+    mplus-outline-fonts.githubRelease
+    dina-font
+    proggyfonts
+    wineWowPackages.fonts
+    corefonts
+    vistafonts
+  ];
 
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -209,18 +212,18 @@
 
 
 
-   # Enable the Flakes feature and the accompanying new nix command-line tool
+  # Enable the Flakes feature and the accompanying new nix command-line tool
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Set the default editor to vim
   environment.variables.EDITOR = "vim";
   environment.sessionVariables = {
-#   XDG_DATA_HOME = "$HOME/.local/share";
-#   XDG_CONFIG_HOME = "$HOME/.local/config";
-#   XDG_CACHE_HOME = "$HOME/.local/cache";
+    #   XDG_DATA_HOME = "$HOME/.local/share";
+    #   XDG_CONFIG_HOME = "$HOME/.local/config";
+    #   XDG_CACHE_HOME = "$HOME/.local/cache";
 
-  NIXOS_OZONE_WL = "1";
-};
+    NIXOS_OZONE_WL = "1";
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

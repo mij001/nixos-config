@@ -5,7 +5,7 @@
   home.username = "inomal";
   home.homeDirectory = "/home/inomal";
 
-  imports = [ ./starship.nix ./vscode.nix ./ranger.nix ./flameshot.nix ./plasma-conf.nix];
+  imports = [ ./starship.nix ./vscode.nix ./ranger.nix ./flameshot.nix ./plasma-conf.nix ];
 
   # link the configuration file in current directory to the specified location in home directory
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
@@ -23,10 +23,10 @@
   # '';
 
   # set cursor size and dpi for 4k monitor
-#   xresources.properties = {
-#     "Xcursor.size" = 16;
-#     "Xft.dpi" = 172;
-#   };
+  #   xresources.properties = {
+  #     "Xcursor.size" = 16;
+  #     "Xft.dpi" = 172;
+  #   };
 
   programs.git = {
     enable = true;
@@ -86,7 +86,7 @@
     gdb
     gsettings-desktop-schemas
 
-     #python311Packages.tensorflowWithCuda
+    #python311Packages.tensorflowWithCuda
     neofetch
     nnn # terminal file manager
 
@@ -95,27 +95,27 @@
     xz
     unzip
     p7zip
-
+    nixpkgs-fmt
 
     # utils
     ripgrep # recursively searches directories for a regex pattern
-#     jq # A lightweight and flexible command-line JSON processor
-#     yq-go # yaml processor https://github.com/mikefarah/yq
-#     eza # A modern replacement for ‘ls’
-#     fzf # A command-line fuzzy finder
+    #     jq # A lightweight and flexible command-line JSON processor
+    #     yq-go # yaml processor https://github.com/mikefarah/yq
+    #     eza # A modern replacement for ‘ls’
+    #     fzf # A command-line fuzzy finder
 
     # networking tools
-#     mtr # A network diagnostic tool
-#     iperf3
-#     dnsutils  # `dig` + `nslookup`
-#     ldns # replacement of `dig`, it provide the command `drill`
-#     aria2 # A lightweight multi-protocol & multi-source command-line download utility
-#     socat # replacement of openbsd-netcat
-#     nmap # A utility for network discovery and security auditing
-#     ipcalc  # it is a calculator for the IPv4/v6 addresses
+    #     mtr # A network diagnostic tool
+    #     iperf3
+    #     dnsutils  # `dig` + `nslookup`
+    #     ldns # replacement of `dig`, it provide the command `drill`
+    #     aria2 # A lightweight multi-protocol & multi-source command-line download utility
+    #     socat # replacement of openbsd-netcat
+    #     nmap # A utility for network discovery and security auditing
+    #     ipcalc  # it is a calculator for the IPv4/v6 addresses
 
     # misc
-#     cowsay
+    #     cowsay
     file
     which
     wireshark
@@ -124,11 +124,11 @@
     fzf
     rclone
     rclone-browser
-#     gnused
-#     gnutar
-#     gawk
-#     zstd
-#     gnupg
+    #     gnused
+    #     gnutar
+    #     gawk
+    #     zstd
+    #     gnupg
 
     # nix related
     #
@@ -137,14 +137,14 @@
     nix-output-monitor
 
     # productivity
-#     hugo # static site generator
-#     glow # markdown previewer in terminal
-#
-#     btop  # replacement of htop/nmon
-#     iotop # io monitoring
-#     iftop # network monitoring
-#
-#     # system call monitoring
+    #     hugo # static site generator
+    #     glow # markdown previewer in terminal
+    #
+    #     btop  # replacement of htop/nmon
+    #     iotop # io monitoring
+    #     iftop # network monitoring
+    #
+    #     # system call monitoring
     strace # system call monitoring
     ltrace # library call monitoring
     lsof # list open files
@@ -152,19 +152,19 @@
     # system tools
     sysstat
     lm_sensors # for `sensors` command
-#     ethtool
+    #     ethtool
     pciutils
     gns3-gui
     tree
     # lspci
-#     usbutils # lsusb
+    #     usbutils # lsusb
   ];
 
-#   services.gns3-server = {
-#     enable = true;
-#     auth.user = "inomal";
-#
-#   };
+  #   services.gns3-server = {
+  #     enable = true;
+  #     auth.user = "inomal";
+  #
+  #   };
 
 
   # services.fusuma = {
@@ -196,8 +196,8 @@
 
   # basic configuration of git, please change to your own
 
-/*
-  wayland.windowManager.hyprland = {
+  /*
+    wayland.windowManager.hyprland = {
     enable = true;
     settings = {home.pointerCursor = {
     gtk.enable = true;
@@ -205,9 +205,9 @@
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Classic";
     size = 16;
-  };
+    };
 
-  gtk = {
+    gtk = {
     enable = true;
 
     theme = {
@@ -224,8 +224,8 @@
       name = "Sans";
       size = 11;
     };
-  };
-   "$mod" = "SUPER";
+    };
+     "$mod" = "SUPER";
     bind =
       [
 
@@ -247,43 +247,43 @@
           10)
       );
 
-  };
+    };
   };*/
 
 
   # alacritty - a cross-platform, GPU-accelerated terminal emulator
-#   programs.alacritty = {
-#     enable = true;
-#     # custom settings
-#     settings = {
-#       env.TERM = "xterm-256color";
-#       font = {
-#         size = 12;
-#         draw_bold_text_with_bright_colors = true;
-#       };
-#       scrolling.multiplier = 5;
-#       selection.save_to_clipboard = true;
-#     };
-#   };
+  #   programs.alacritty = {
+  #     enable = true;
+  #     # custom settings
+  #     settings = {
+  #       env.TERM = "xterm-256color";
+  #       font = {
+  #         size = 12;
+  #         draw_bold_text_with_bright_colors = true;
+  #       };
+  #       scrolling.multiplier = 5;
+  #       selection.save_to_clipboard = true;
+  #     };
+  #   };
 
 
-# starship - an customizable prompt for any shell
+  # starship - an customizable prompt for any shell
 
   programs.zsh = {
     enable = true;
-     autosuggestion.enable = true;
-     #autosuggestion.highlight = "fg=#ff00ff,bg=cyan,bold,underline";
-     syntaxHighlighting.enable = true;
+    autosuggestion.enable = true;
+    #autosuggestion.highlight = "fg=#ff00ff,bg=cyan,bold,underline";
+    syntaxHighlighting.enable = true;
 
-     syntaxHighlighting.highlighters = [
-                                        "main"
-                                        "brackets"
-                                        "pattern"
-                                        "cursor"
-                                        "regexp"
-                                        "root"
-                                        "line"
-                                        ];
+    syntaxHighlighting.highlighters = [
+      "main"
+      "brackets"
+      "pattern"
+      "cursor"
+      "regexp"
+      "root"
+      "line"
+    ];
 
     shellAliases = {
       /*k = "kubectl";
@@ -293,22 +293,22 @@
       la = "ls -a";
       ll = "ls -l";
       lll = "ls -la";
-      nbld ="sudo nixos-rebuild switch";
+      nbld = "sudo nixos-rebuild switch";
       hbld = "home-manager switch";
-      ngc="nix store gc; nix store optimise";
-      ngcall="sudo nix-collect-garbage -d; nix store gc; nix store optimise";
+      ngc = "nix store gc; nix store optimise";
+      ngcall = "sudo nix-collect-garbage -d; nix store gc; nix store optimise";
       z = "zoxide";
     };
   };
 
-  programs.kitty= {
+  programs.kitty = {
     enable = true;
     font.name = "Fira Fons sans";
     shellIntegration.enableZshIntegration = true;
     theme = "Obsidian";
 
     settings = {
-        background_opacity = "0.9";
+      background_opacity = "0.9";
     };
   };
 
@@ -321,25 +321,25 @@
     enable = true;
     enableZshIntegration = true;
   };
-#   wayland.windowManager.hyprland = {
-#     enable = true;
-#   };
-#
-#   wayland.windowManager.hyprland.settings = {
-#   decoration = {
-#     shadow_offset = "0 5";
-#     "col.shadow" = "rgba(00000099)";
-#   };
-#
-#   "$mod" = "SUPER";
-#
-#   bindm = [
-#     # mouse movements
-#     "$mod, mouse:272, movewindow"
-#     "$mod, mouse:273, resizewindow"
-#     "$mod ALT, mouse:272, resizewindow"
-#   ];
-# };
+  #   wayland.windowManager.hyprland = {
+  #     enable = true;
+  #   };
+  #
+  #   wayland.windowManager.hyprland.settings = {
+  #   decoration = {
+  #     shadow_offset = "0 5";
+  #     "col.shadow" = "rgba(00000099)";
+  #   };
+  #
+  #   "$mod" = "SUPER";
+  #
+  #   bindm = [
+  #     # mouse movements
+  #     "$mod, mouse:272, movewindow"
+  #     "$mod, mouse:273, resizewindow"
+  #     "$mod ALT, mouse:272, resizewindow"
+  #   ];
+  # };
 
 
 
