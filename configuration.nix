@@ -136,6 +136,9 @@
     ];
   };
 
+  # enabling ntfs
+  boot.supportedFilesystems = [ "ntfs" ];
+
   nix.settings.trusted-users = [ "inomal" ];
 
   virtualisation.libvirtd.enable = true;
