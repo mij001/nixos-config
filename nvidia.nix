@@ -3,7 +3,7 @@
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.production;
   boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
 
-
+  boot.initrd.kernelModules = ["i915"];
 
   # Enable OpenGL
   hardware.opengl = {
