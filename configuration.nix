@@ -9,6 +9,7 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./nvidia.nix
     ];
 
   # Bootloader.
@@ -31,7 +32,7 @@
       enable = true;
     };
   };
-
+  
 
   networking.hostName = "nixos"; # Define your hostname.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -63,42 +64,6 @@
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
-  ######################### Heperland setup #######################
-  /*
-    programs.hyprland = { # we use this instead of putting it in systemPackages/users
-    enable = true;
-    xwayland.enable = true;
-    };
-
-    environment.sessionVariables.NIXOS_OZONE_WL = "1"; # This variable fixes electron apps in wayland
-
-
-
-    # NVIDIA drivers are unfree.
-    services.xserver.videoDrivers = [ "nvidia" "intel"]; # If you are using a hybrid laptop add its iGPU manufacturer
-    hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-    };
-
-    hardware.nvidia = {
-    # Enable modesetting for Wayland compositors (hyprland)
-    modesetting.enable = true;
-    # Use the open source version of the kernel module (for driver 515.43.04+)
-    open = true;
-    # Enable the Nvidia settings menu
-    nvidiaSettings = true;
-    # Select the appropriate driver version for your specific GPU
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };*/
-  #################################################################
-
-  # Configure keymap in X11
-  #    services.xserver = {
-  #      layout = "us";
-  #      xkbVariant = "";
-  #    };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -132,6 +97,7 @@
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" "input" ];
     packages = with pkgs; [
       kdePackages.kate
+      kdePackages.plasma-browser-integration
       #  thunderbird
     ];
   };
