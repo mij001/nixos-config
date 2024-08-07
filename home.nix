@@ -5,7 +5,7 @@
   home.username = "inomal";
   home.homeDirectory = "/home/inomal";
 
-  imports = [ ./starship.nix ./vscode.nix ./ranger.nix ./flameshot.nix ./plasma-conf.nix ./brave.nix];
+  imports = [ ./starship.nix ./vscode.nix ./ranger.nix ./flameshot.nix ./plasma-conf.nix ./brave.nix ];
 
   # link the configuration file in current directory to the specified location in home directory
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
@@ -38,6 +38,17 @@
     };
   };
 
+
+  # programs = {
+  #   direnv = {
+  #     enable = true;
+  #     enableBashIntegration = true; # see note on other shells below
+  #     nix-direnv.enable = true;
+  #   };
+
+  #   zsh.enable = true; # see note on other shells below
+  # };
+
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     # here is some command line tools I use frequently
@@ -63,7 +74,7 @@
     obsidian
     qbittorrent
     nerdfonts
-
+    zoom-us
 
     remmina
     cargo
@@ -89,6 +100,7 @@
     #python311Packages.tensorflowWithCuda
     neofetch
     nnn # terminal file manager
+    kicad
 
     # archives
     zip
@@ -161,7 +173,7 @@
     #     usbutils # lsusb
   ];
 
-  
+
   #   services.gns3-server = {
   #     enable = true;
   #     auth.user = "inomal";
@@ -299,7 +311,7 @@
       hbld = "home-manager switch";
       ngc = "nix store gc; nix store optimise";
       ngcall = "sudo nix-collect-garbage -d; nix store gc; nix store optimise";
-      z = "zoxide";
+      #z = "zoxide";
     };
   };
 

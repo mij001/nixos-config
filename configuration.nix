@@ -32,7 +32,7 @@
       enable = true;
     };
   };
-  
+
 
   networking.hostName = "nixos"; # Define your hostname.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -135,6 +135,7 @@
     vim
     wget
     fprintd
+    #libsForQt5.krohnkite
   ];
 
   # fingerprint setup
@@ -199,6 +200,33 @@
     #   XDG_CACHE_HOME = "$HOME/.local/cache";
 
     NIXOS_OZONE_WL = "1";
+  };
+
+  programs.nix-ld = {
+    enable = true;
+    package = pkgs.nix-ld-rs;
+    libraries = with pkgs; [
+      cudaPackages.cutensor
+      cudaPackages.nvidia_fs
+      cudaPackages.libcurand
+      cudaPackages.libcufile
+
+      cudaPackages.libcublas
+      cudaPackages.cuda_cccl
+
+      cudaPackages.cuda_cupti
+      stdenv.cc
+      libGLU
+      libGL
+      xorg.libXi
+      xorg.libXmu
+      freeglut
+      xorg.libXext
+      xorg.libX11
+      xorg.libXv
+      xorg.libXrandr
+
+    ];
   };
 
   # This value determines the NixOS release from which the default
