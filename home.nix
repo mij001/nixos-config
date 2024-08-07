@@ -38,7 +38,7 @@
     };
   };
 
-
+  
   # programs = {
   #   direnv = {
   #     enable = true;
@@ -53,7 +53,8 @@
   home.packages = with pkgs; [
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
-
+    stm32cubemx
+    stm32flash
 
     neofetch
     wget
@@ -62,6 +63,7 @@
     virt-manager
     papirus-icon-theme
     python39Full
+    bottles
 
     gparted
     vlc
@@ -211,36 +213,36 @@
   # basic configuration of git, please change to your own
 
   /*
-    wayland.windowManager.hyprland = {
-    enable = true;
-    settings = {home.pointerCursor = {
-    gtk.enable = true;
-    # x11.enable = true;
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Classic";
-    size = 16;
-    };
+      wayland.windowManager.hyprland = {
+      enable = true;
+      settings = {home.pointerCursor = {
+      gtk.enable = true;
+      # x11.enable = true;
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+      size = 16;
+      };
 
-    gtk = {
-    enable = true;
+      gtk = {
+      enable = true;
 
-    theme = {
+      theme = {
       package = pkgs.flat-remix-gtk;
       name = "Flat-Remix-GTK-Grey-Darkest";
-    };
+      };
 
-    iconTheme = {
+      iconTheme = {
       package = pkgs.gnome.adwaita-icon-theme;
       name = "Adwaita";
-    };
+      };
 
-    font = {
+      font = {
       name = "Sans";
       size = 11;
-    };
-    };
-     "$mod" = "SUPER";
-    bind =
+      };
+      };
+       "$mod" = "SUPER";
+      bind =
       [
 
       ]
@@ -261,8 +263,8 @@
           10)
       );
 
-    };
-  };*/
+      };
+    };*/
 
 
   # alacritty - a cross-platform, GPU-accelerated terminal emulator
@@ -302,7 +304,7 @@
     shellAliases = {
       /*k = "kubectl";
       urldecode = "python3 -c 'import sys, urllib.parse as ul; print(ul.unquote_plus(sys.stdin.read()))'";
-      urlencode = "python3 -c 'import sys, urllib.parse as ul; print(ul.quote_plus(sys.stdin.read()))'";*/
+        urlencode = "python3 -c 'import sys, urllib.parse as ul; print(ul.quote_plus(sys.stdin.read()))'";*/
 
       la = "ls -a";
       ll = "ls -l";

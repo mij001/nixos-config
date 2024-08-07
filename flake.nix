@@ -35,9 +35,11 @@
       url = "github:nix-community/nixvim/nixos-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, nix-flatpak, ... }: {
     nixosConfigurations = {
 
       nixos = nixpkgs.lib.nixosSystem {
@@ -45,7 +47,7 @@
         modules = [
           ./configuration.nix
 
-
+          nix-flatpak.nixosModules.nix-flatpak
 
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
@@ -55,7 +57,10 @@
             home-manager.useUserPackages = true;
 
             home-manager.users.inomal = import ./home.nix;
-            home-manager.sharedModules = [ inputs.plasma-manager.homeManagerModules.plasma-manager ];
+            home-manager.sharedModules = [
+              inputs.plasma-manager.homeManagerModules.plasma-manager
+            ];
+
 
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
           }
