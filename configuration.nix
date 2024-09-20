@@ -91,6 +91,8 @@
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
   programs.partition-manager.enable = true;
+  programs.kdeconnect.enable = true;
+
 
   users.users.inomal = {
     isNormalUser = true;
@@ -100,6 +102,8 @@
     packages = with pkgs; [
       kdePackages.kate
       kdePackages.plasma-browser-integration
+      kdePackages.kget
+
       #  thunderbird
     ];
   };
@@ -186,7 +190,7 @@
 
 
 
-/*
+
   services.flatpak = {
     enable = true;
     remotes = pkgs.lib.mkOptionDefault [{
@@ -218,7 +222,7 @@
     # };
   };
 
-*/
+
 
 
   # Enable the Flakes feature and the accompanying new nix command-line tool
@@ -255,11 +259,13 @@
     #   freeglut
     #   xorg.libXext
       xorg.libX11
+      touchegg
     #   xorg.libXv
     #   xorg.libXrandr
 
     ];
   };
+  services.touchegg.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

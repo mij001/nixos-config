@@ -3,7 +3,9 @@
   programs.chromium = {
     enable = true;
     package = pkgs.brave;
-    
+
+    #enablePlasmaBrowserIntegration = true;
+    commandLineArgs = [ "--enable-features=TouchpadOverscrollHistoryNavigation" "--disable-experiments"];
     extensions = [
       # ublock origin
       "cjpalhdlnbpafiamejdnhcphjbkeiagm"

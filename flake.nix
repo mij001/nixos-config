@@ -31,6 +31,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.1";
+
+      # Optional but recommended to limit the size of your system closure.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixvim = {
       url = "github:nix-community/nixvim/nixos-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -39,7 +46,7 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nix-flatpak, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, nix-flatpak, lanzaboote, ... }: {
     nixosConfigurations = {
 
       nixos = nixpkgs.lib.nixosSystem {
@@ -48,6 +55,9 @@
           ./configuration.nix
 
           nix-flatpak.nixosModules.nix-flatpak
+
+          lanzaboote.nixosModules.lanzaboote
+          ./lanzaboote-sb.nix
 
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
