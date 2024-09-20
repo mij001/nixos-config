@@ -5,7 +5,7 @@
   home.username = "inomal";
   home.homeDirectory = "/home/inomal";
 
-  imports = [ ./starship.nix ./vscode.nix ./ranger.nix ./flameshot.nix ./plasma-conf.nix ./brave.nix ./touchegg.nix];
+  imports = [ ./starship.nix ./vscode.nix ./ranger.nix ./flameshot.nix ./plasma-conf.nix ./brave.nix];
 
   # link the configuration file in current directory to the specified location in home directory
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;

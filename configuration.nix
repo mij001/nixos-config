@@ -132,6 +132,7 @@
   #     };
   #   };
 
+  services.touchegg.enable = true;
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
 
@@ -142,8 +143,10 @@
     wget
     btrfs-progs
     fprintd
+    touchegg
     #libsForQt5.krohnkite
   ];
+  environment.etc."xdg/touchegg/touchegg.conf".text = "<touchégg></touchégg>";
 
   # fingerprint setup
   services.fprintd = {
@@ -259,13 +262,12 @@
     #   freeglut
     #   xorg.libXext
       xorg.libX11
-      touchegg
+      
     #   xorg.libXv
     #   xorg.libXrandr
 
     ];
   };
-  services.touchegg.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
