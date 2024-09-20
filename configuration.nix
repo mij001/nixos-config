@@ -132,7 +132,7 @@
   #     };
   #   };
 
-  services.touchegg.enable = true;
+  # services.touchegg.enable = true;
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
 
@@ -143,10 +143,10 @@
     wget
     btrfs-progs
     fprintd
-    touchegg
+    #touchegg
     #libsForQt5.krohnkite
   ];
-  environment.etc."xdg/touchegg/touchegg.conf".text = "<touchégg></touchégg>";
+  # environment.etc."xdg/touchegg/touchegg.conf".text = "<touchégg></touchégg>";
 
   # fingerprint setup
   services.fprintd = {
